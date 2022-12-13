@@ -1,0 +1,19 @@
+.products-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn{
+  background-color: #9d2774!important;
+  border-color: #9d2774!important;
+}
+
+.btn:hover{
+  background-color: #ce1a8f !important;
+}
+.card{
+  width: 150px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+

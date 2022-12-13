@@ -1,0 +1,29 @@
+
+.img{
+  max-width: 400px;
+
+}
+.content-product{
+  display: flex;
+}
+.otmot{
+  max-width: 400px ;
+  background-color:rgb(209, 212, 224);
+  border-radius: 5px;
+  padding: 5px 5px;
+  text-align: center;
+}
+.content-info{
+  margin-left: 20px;
+}
+// .button{
+//   background-color: #9d2774;
+//   color: rgb(255, 255, 255);
+//   border-radius: 10px;
+//   border-color: #9d2774;
+// }
+
+.btn.btn-danger{
+  background-color: #9d2774!important;
+  border-color: #9d2774!important;
+}

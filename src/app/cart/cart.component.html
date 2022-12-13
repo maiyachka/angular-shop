@@ -1,0 +1,98 @@
+<h3><a class="navbar-brand" href="#">Корзина</a></h3>
+
+<div *ngIf="items.length; else elseBlock">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Название</th>
+        <th scope="col">Код</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Кол-во<br>конусов</th>
+        <th scope="col">Итого</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td >
+          <img src={{item.image}} class="img-little">
+        </td>
+        <td >
+          {{ item.name }}
+        </td>
+        <td>{{ item.kod }}</td>
+
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeQuantity(item)"> - </button>
+            {{ item.kol }}
+          <button type="button" class="btn btn-danger btn-sm" (click)="addQuantity(item)" > + </button>
+        </td>
+        <td>{{ item.price | currency }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm" (click)="removeKonus(item)"> - </button>
+            {{ item.konus }}
+          <button type="button" class="btn btn-danger btn-sm" (click)="addKonus(item)" > + </button>
+        </td>
+        <td>{{ getSum(item) }}$</td>
+        <td><button class="btn btn-danger btn-sm"(click)="deleteCard(item)">X</button></td>
+      </tr>
+      <tr>
+        <td>Общая сумма:</td>
+        <td>{{y}}$</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
+  <h3>Оформление заказа</h3>
+  <br>
+  <form class="forma">
+    <div>Данные получателя</div>
+    <div class="row mb-3">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Имя" aria-label="First name">
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Фамилия" aria-label="Last name">
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <input type="tel" class="form-control" placeholder="Телефон" aria-label="tel">
+      </div>
+      <div class="col">
+        <input type="email" class="form-control" placeholder="e-mail" aria-label="email">
+      </div>
+    </div>
+
+    <div> Доставка </div>
+    <div class="row mb-3">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Город" aria-label="city">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Область" aria-label="country">
+      </div>
+      <div class="col-4">
+        <input type="text" class="form-control" placeholder="Новая почта №" aria-label="post">
+      </div>
+    </div>
+    <div class="input-group">
+      <span class="input-group-text">Коментарий к заказу</span>
+      <textarea class="form-control" aria-label="With textarea"></textarea>
+    </div>
+
+    <br>
+    <div>
+      <button type="submit" class="btn btn-primary">Оформить заказ</button>
+    </div>
+  </form>
+
+</div>
+<ng-template #elseBlock>Корзина пуста</ng-template>
+
+

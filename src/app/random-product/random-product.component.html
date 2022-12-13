@@ -1,0 +1,21 @@
+<h4>Вас может заинтересовать!</h4>
+
+<div class="products-container">
+  <div *ngFor="let product of listRandom" >
+
+    <div class="card" style="max-width: 14rem;" [routerLink]="['/card-info']" (click)="selectCard(product)">
+      <img src= {{product.image}} class="card-img-top" alt="..." >
+    </div>
+    <div class="card" style="max-width: 14rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">{{product.name}}</li>
+        <li class="list-group-item">Код: {{product.kod}}</li>
+        <li class="list-group-item">{{product.description}}/100г</li>
+
+      </ul>
+
+      <button type="button" class="btn btn-danger" [routerLink]="['/card-info']" (click)="selectCard(product)">Купить {{product.price}}$</button>
+
+    </div>
+  </div>
+</div>

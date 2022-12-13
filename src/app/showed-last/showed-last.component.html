@@ -1,0 +1,26 @@
+
+<ng-template [ngIf]="lastShowed.length > 0"><div>
+
+<h4 class="fon">Последние просмотренные</h4>
+
+<div class="products-container">
+  <div *ngFor="let product of lastShowed" >
+
+    <div class="card" style="max-width: 14rem;" [routerLink]="['/card-info']" (click)="selectCard(product)">
+      <img src= {{product.image}} class="card-img-top" alt="..." >
+    </div>
+    <div class="card" style="max-width: 14rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Артикул: {{product.name}}</li>
+        <li class="list-group-item">Код: {{product.kod}}</li>
+        <li class="list-group-item">Цвет: {{product.color}}</li>
+        <li class="list-group-item">Длина в 100г: {{product.description}}</li>
+        <li class="list-group-item">Цена за 100г: {{product.price}}$</li>
+      </ul>
+
+      <button type="button" class="btn btn-danger" [routerLink]="['/card-info']" (click)="selectCard(product)">Купить</button>
+
+    </div>
+  </div>
+</div>
+</div></ng-template>

@@ -1,0 +1,85 @@
+<h2> Информация о пряже </h2>
+
+
+
+<div class="content-product">
+  <div class="conteiner-img">
+    <div class="img">
+       <img src= {{product.image}} class="card-img-top" alt="...">
+    </div>
+  </div>
+    <div class = "content-info">
+    <div class="card" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Название: {{product.name}}</li>
+        <li class="list-group-item">Код: {{product.kod}}<br></li>
+        <li class="list-group-item">Цвет: {{product.color}}<br></li>
+        <li class="list-group-item">Длина в 100г: {{product.description}}<br></li>
+        <li class="list-group-item">Цена за 100г: {{product.price}} $<br></li>
+      </ul>
+    </div>
+
+
+    <br>
+    <div class="otmot">Отмот осуществляется только в 1 сложение!</div>
+      <br>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <label class="form-check-label" for="flexRadioDefault1">
+        Весь вес на 1 конус
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <label class="form-check-label" for="flexRadioDefault2">
+        Необходим размот на конуса
+      </label>
+    </div>
+      <br>
+
+    <div>Количество конусов:</div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" [(ngModel)]="konus" type="radio" name="konus" id="inlineRadio1" [value]="1" checked>
+      <label class="form-check-label" for="inlineRadio1">1</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" [(ngModel)]="konus" type="radio" name="konus" id="inlineRadio2" [value]="2">
+      <label class="form-check-label" for="inlineRadio2">2</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" [(ngModel)]="konus" type="radio" name="konus" id="inlineRadio3" [value]="3">
+      <label class="form-check-label" for="inlineRadio3"> 3 </label>
+    </div>
+
+    <br>
+    <br>
+
+    <form action="#">
+      <div>Количество:</div>
+      <input type="number" [(ngModel)]="kol" name="kol" value="1"/>
+    </form>
+
+    <br>
+    <div *ngIf="product">
+      <button class ="btn btn-danger" type="button" (click)="addToCart(product)">В корзину</button>
+    </div>
+
+    <br>
+    <div *ngIf="suc">
+      <div class="alert alert-success" role="alert">
+        Товар добавлен в корзину!
+      </div>
+    </div>
+
+    <br>
+    <br>
+  </div>
+</div>
+
+<h3>Описание:</h3>
+<span>Прекрасная мягкая и нежная пряжа, очень приятная на ощупь, абсолютно не колется, для чувствительной кожи и детей.</span>
+
+ <div>{{news}}</div>
+<br>
+
+<app-showed-last [lastShowed]="lastShowed" (selection)="changeSelection($event)"></app-showed-last>
